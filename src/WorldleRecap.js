@@ -10,7 +10,7 @@ class WorldleRecap {
   }
 
   static fromShareText(sharedSnippet) {
-    const [header, , ...blocks] = sharedSnippet.split('\n')
+    const [header, ...blocks] = sharedSnippet.split(/[\n]+/)
     const { gameNumber }  = header.match(SHARE_SNIPPET_REGEXP).groups;
     const gameIndex = new Number(gameNumber);
     const guesses = blocks.map((guess) => {
